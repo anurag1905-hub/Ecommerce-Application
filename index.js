@@ -1,9 +1,15 @@
 const express = require('express');
-const app = express();
+const cookieParser = require('cookie-parser');
 const db = require('./config/mongoose');
 const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+app.use(express.urlencoded({extended:false}));
+app.use(cookieParser());
+
 
 require('dotenv').config();
 
