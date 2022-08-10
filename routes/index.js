@@ -8,5 +8,7 @@ router.get('/',function(req,res){
 
 router.use('/auth',require('./auth'));
 router.use('/users',require('./user'));
+router.use('/category',require('./category'));
+router.use('/product',require('./product'));
 
 module.exports = router;
