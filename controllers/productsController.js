@@ -146,7 +146,26 @@ module.exports.list = function(req,res){
             });
         }
         else{
-            return res.send(products);
+            return res.json(products);
+        }
+    });
+}
+
+// other products that have the same category will be returned.
+module.exports.relatedProducts = function(req,res){
+    let limit = req.query.limit?parseInt(req.query.limit):10;
+    //Find all the products related to current product, not including the current product.
+    Product.find({_id:{$ne:req.product},category:req.product.category})
+    .limit(limit)
+    .populate('category','_id name')
+    .exec(function(err,products){
+        if(err){
+            return res.status(400).json({
+                error:"Products not found"
+            });
+        }
+        else{
+            return res.json(products);
         }
     });
 }
