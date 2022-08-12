@@ -9,6 +9,8 @@ router.get('/secret/:userId',authController.requireSignIn,authController.isAuth,
         user:req.profile
     });
 });
+router.get('/profile/:userId',authController.requireSignIn,authController.isAuth,usersController.read);
+router.put('/profile/:userId',authController.requireSignIn,authController.isAuth,usersController.update);
 
 router.param('userId',usersController.userById);
 
