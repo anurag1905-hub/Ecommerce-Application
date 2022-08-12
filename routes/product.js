@@ -12,6 +12,7 @@ router.delete('/delete/:userId/:productId',authController.requireSignIn,authCont
 router.put('/update/:userId/:productId',authController.requireSignIn,authController.isAuth,authController.isAdmin,productController.update);
 router.get('/list',productController.list);
 router.get('/related/:productId',productController.relatedProducts);
+router.get('/categories',productController.productCategories);
 
 router.param("userId",usersController.userById);
 router.param("productId",productController.productById);

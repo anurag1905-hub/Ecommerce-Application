@@ -169,3 +169,17 @@ module.exports.relatedProducts = function(req,res){
         }
     });
 }
+
+module.exports.productCategories = function(req,res){
+    // Number of distinct categories of which products are available in our database.
+    Product.distinct("category",{},function(err,categories){
+        if(err){
+            return res.status(400).json({
+                error:"Categories not found"
+            });
+        }
+        else{
+            return res.json(categories);
+        }
+    });
+}
