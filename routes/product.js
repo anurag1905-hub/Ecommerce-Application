@@ -13,6 +13,7 @@ router.put('/update/:userId/:productId',authController.requireSignIn,authControl
 router.get('/list',productController.list);
 router.get('/related/:productId',productController.relatedProducts);
 router.get('/categories',productController.productCategories);
+router.post('/by/search',productController.listBySearch);
 
 router.param("userId",usersController.userById);
 router.param("productId",productController.productById);
