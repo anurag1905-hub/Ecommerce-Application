@@ -10,6 +10,7 @@ router.post("/create/:userId",authController.requireSignIn,authController.isAuth
 router.get('/read/:productId',productController.read);
 router.delete('/delete/:userId/:productId',authController.requireSignIn,authController.isAuth,authController.isAdmin,productController.remove);
 router.put('/update/:userId/:productId',authController.requireSignIn,authController.isAuth,authController.isAdmin,productController.update);
+router.get('/list',productController.list);
 
 router.param("userId",usersController.userById);
 router.param("productId",productController.productById);
