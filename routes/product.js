@@ -14,6 +14,7 @@ router.get('/list',productController.list);
 router.get('/related/:productId',productController.relatedProducts);
 router.get('/categories',productController.productCategories);
 router.post('/by/search',productController.listBySearch);
+router.get('/photo/:productId',productController.getPhoto);
 
 router.param("userId",usersController.userById);
 router.param("productId",productController.productById);
